@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Write the first class Base:"""
+import json
+from os import path
 
 
 class Base:
@@ -39,7 +41,6 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """returns a list of instances"""
-        from os import path
 
         file = cls.__name__ + ".json"
         if not path.isfile(file):
@@ -50,7 +51,6 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """returns the list of the JSON string representation json_string"""
-        import json
 
         if json_string is None or len(json_string) == 0:
             return []
@@ -59,7 +59,6 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """json metohd"""
-        import json
         if list_dictionaries is None:
             list_dictionaries = []
         return json.dumps(list_dictionaries)
