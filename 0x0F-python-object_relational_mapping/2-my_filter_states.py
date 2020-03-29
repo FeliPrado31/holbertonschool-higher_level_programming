@@ -17,8 +17,10 @@ if __name__ == "__main__":
                          passwd=passwd, db=db, port=3306)
     cursor = db.cursor()
     sql = cursor.execute(
-        "SELECT * FROM states WHERE states.name = '{}' ORDER BY states.id"
-        .format(state))
+        """
+        SELECT * FROM states
+        WHERE name LIKE BINARY '{:s}'
+        ORDER BY id ASC""".format(argv[4]))
     rows = cursor.fetchall()
     for row in rows:
         print(row)
