@@ -16,4 +16,5 @@ if __name__ == "__main__":
     for rest in data:
         if values > 9:
             break
-        print(rest.get('sha') + ': ' + rest.get('commit').get('author').get('name'))
+        print(rest.get('sha') + ': ' +
+              rest.get('commit').get('author').get('name'))
