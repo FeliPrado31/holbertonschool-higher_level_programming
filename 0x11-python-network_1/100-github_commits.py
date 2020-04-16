@@ -6,7 +6,7 @@ from sys import argv
 
 if __name__ == "__main__":
     link = "https://api.github.com/repos/{}/{}/commits".format(
-        argv[1], argv[2])
+        argv[2], argv[1])
     rest = requests.get(link)
 
     if "json" not in rest.headers.get('content-type'):
