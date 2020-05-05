@@ -1,8 +1,12 @@
 #!/usr/bin/node
 // Write a script that prints the addition of 2 integers
 
-let num1 = parseInt(process.argv[2]);
-let num2 = parseInt(process.argv[3]);
-let sum = num1 + num2;
+function add(a, b) {
+     return a + b;
+}
 
-console.log(sum);
+const args = process.argv;
+const num1 = parseInt(args[2], 10);
+const num2 = parseInt(args[3], 10);
+
+console.log(add(num1, num2));
