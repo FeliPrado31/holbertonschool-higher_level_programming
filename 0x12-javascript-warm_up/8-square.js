@@ -1,14 +1,17 @@
 #!/usr/bin/node
-// Write a script that prints a square
+// Prnts a square of a specified size
 
-let n = parseInt(process.argv[2]);
+const args = process.argv;
+const size = parseInt(args[2], 10);
+const data = [];
 
-if (n) {
-  for (let i = 0; i < n; i++) {
-    console.log('X'.repeat(n));
-  }
-} else if (n < 0) {
-  console.log('');
-} else {
+if (isNaN(size)) {
   console.log('Missing size');
+} else {
+  for (let i = 0; i < size; i++) {
+    data.push('X');
+  }
+  for (let i = 0; i < size; i++) {
+    console.log(data.join(''));
+  }
 }
