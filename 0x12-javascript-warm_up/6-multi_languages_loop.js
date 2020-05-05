@@ -1,7 +1,7 @@
 #!/usr/bin/node
 // Write a script that prints 3 lines: (like 1-multi_languages.js) but by using an array of string and a loop
 
-let data = ["C is fun", "Python is cool", "Javascript is amazing"];
+let data = ['C is fun', 'Python is cool', 'Javascript is amazing'];
 for (let i = 0; i < data.length; i++) {
   console.log(data[i]);
 }

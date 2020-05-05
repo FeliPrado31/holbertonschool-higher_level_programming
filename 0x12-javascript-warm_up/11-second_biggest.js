@@ -2,7 +2,7 @@
 // Write a script that searches the second biggest integer in the list of arguments.
 const argsLen = process.argv.length;
 
-if (argsLen === 2 || argsLen === 3) return console.log("0");
+if (argsLen === 2 || argsLen === 3) return console.log('0');
 
 function restNumber(a, b) {
   return a - b;
