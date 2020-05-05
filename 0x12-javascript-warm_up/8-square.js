@@ -1,17 +1,16 @@
 #!/usr/bin/node
-// Prnts a square of a specified size
-
-const args = process.argv;
-const size = parseInt(args[2], 10);
-const data = [];
-
-if (isNaN(size)) {
-  console.log('Missing size');
+const n = parseInt(process.argv[2]);
+let square = '';
+if (Number.isInteger(n)) {
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      square += 'X';
+    }
+    if (i < n - 1) {
+      square += '\n';
+    }
+  }
+  console.log(square);
 } else {
-  for (let i = 0; i < size; i++) {
-    data.push('X');
-  }
-  for (let i = 0; i < size; i++) {
-    console.log(data.join(''));
-  }
+  console.log('Missing size');
 }
