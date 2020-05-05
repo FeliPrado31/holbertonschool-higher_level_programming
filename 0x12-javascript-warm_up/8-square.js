@@ -1,16 +1,12 @@
 #!/usr/bin/node
-const n = parseInt(process.argv[2]);
-let square = '';
-if (Number.isInteger(n)) {
-  for (let i = 0; i < n; i++) {
-    for (let j = 0; j < n; j++) {
-      square += 'X';
-    }
-    if (i < n - 1) {
-      square += '\n';
-    }
+const args = process.argv;
+
+if (!parseInt(args[2])) return console.log('Missing size');
+
+for (let x = parseInt(args[2]); x > 0; x--) {
+  let size = '';
+  for (let x = parseInt(args[2]); x > 0; x--) {
+    size += 'X';
   }
-  console.log(square);
-} else {
-  console.log('Missing size');
+  console.log(size);
 }
