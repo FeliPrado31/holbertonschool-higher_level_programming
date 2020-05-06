@@ -1,20 +1,14 @@
 #!/usr/bin/node
-// Write a script that searches the second biggest integer in the list of arguments.
-const argsLen = process.argv.length;
-
-if (argsLen === 2 || argsLen === 3) {
-  console.log('0');
+const len = process.argv.length;
+if (len <= 2) {
+  console.log(0);
+} else if (len === 3) {
+  console.log(0);
+} else {
+  getNumber();
 }
 
-function restNumber (a, b) {
-  return a - b;
+function getNumber () {
+  const num = process.argv.sort(function (a, b) { return b - a; });
+  console.log(num[3]);
 }
-
-const arr = [];
-
-for (let i = 2; i < argsLen; i++) {
-  arr.push(process.argv[i]);
-}
-arr.sort(restNumber);
-
-console.log(arr[arr.length - 2]);
