@@ -1,14 +1,19 @@
 #!/usr/bin/node
-const request = require('request');
-const url = `${process.argv[2]}`;
 
-request(url, (error, response, body) => {
-  if (!error) {
-    const films = JSON.parse(body).results;
-    const count = films.reduce((count, film) => {
-      const filter = film.characters.find((character) => character.endsWith('/18/'));
-      return (filter) ? count + 1 : count;
-    }, 0);
-    console.log(count);
+require('request').get(process.argv[2], (err, r, body) => {
+  if (err) {
+    console.log(err);
+  } else {
+    let counter = 0;
+    const data = JSON.parse(body).results;
+    for (let i = 0; i < data.length; i++) {
+      for (let n = 0; n < data[i].characters.length; n++) {
+        if (data[i].characters[n].includes('/18/')) {
+          counter++;
+          break;
+        }
+      }
+    }
+    console.log(counter);
   }
 });
