@@ -1,9 +1,11 @@
 #!/usr/bin/node
 
-require('request').get('http://swapi.co/api/films/' + process.argv[2] + '/', (err, r, body) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(JSON.parse(body).title);
+const request = require('request');
+const url = `https://swapi-api.hbtn.io/api/films/${process.argv[2]}`;
+
+request(url, (error, response, body) => {
+  if (!error && response.statusCode === 200) {
+    const title = JSON.parse(body).title;
+    console.log(`${title}`);
   }
 });
